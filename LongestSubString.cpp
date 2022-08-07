@@ -39,7 +39,6 @@ int lengthOfLongestSubString(string s){
 }
 
 int main(){
-    //string test="abca";
-    //cout<<test.substr(2,1);
-    lengthOfLongestSubString("bbbbb");
+    int length = lengthOfLongestSubString("bbbbb");
+    cout<<"Longest length: "<<length<<endl;
 }
