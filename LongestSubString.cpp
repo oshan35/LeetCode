@@ -1,44 +1,48 @@
 #include<iostream>
 using namespace std;
 #include<string.h>
+#include <vector>
 #include <algorithm>
+
 
 //abca
 int lengthOfLongestSubString(string s){
-    int length = s.length();
+    if(s.length()==1){
+        return 1;
+    }
+    int length = s.length()-1;
+    
     int longestLength = 0;
     //string longestString = "";
-    for(int i=0;i<length;i++){
-        for(int j=1;j<=length;j++){
-            string sub;
-            if(i+j <= length){
-                sub = s.substr(i,j);
+    int root_pos = 0;
+    while(root_pos<length){
+        vector<char> subString;
+        subString.push_back(s[root_pos]);
+        for(int j=root_pos+1;j<=length+1;j++){
+            //cout<<subString.at(0)<<endl;
+            if(!(count(subString.begin(),subString.end(),s[j]))){
+                subString.push_back(s[j]);
             }else{
+                root_pos = j;
+                if (longestLength<subString.size())
+                {
+                    longestLength = subString.size();
+                }
+                
                 break;
             }
-            bool canuse=true;
-
-            for(int letter=0;letter<sub.length();letter++){
-                size_t n= count(sub.begin(),sub.end(),sub[letter]);
-                if(n>1){
-                    canuse = false;
-                    break;
-                }
-            }
-
-  
-            if(longestLength<sub.length() && canuse){
-                longestLength = sub.length();
-                //longestString = s.substr(i,j);
-            }
+ 
+        
         }
 
     }
+
+    
 
     return longestLength;
 }
 
 int main(){
-    int length = lengthOfLongestSubString("bbbbb");
+    int length = lengthOfLongestSubString(" ");
     cout<<"Longest length: "<<length<<endl;
 }
