@@ -17,6 +17,12 @@ bool isValid(string s){
        }else if (num>=4)
        {
             //char prev_char[map[0].length()] = map[0];
+            if (map.length()==0)
+            {
+                valid = false;
+                break;
+            }
+            
             int index =map.length()-1;
             
             int prev = map[index]-'0';
