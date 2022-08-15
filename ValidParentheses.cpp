@@ -20,9 +20,7 @@ bool isValid(string s){
             int index =map.length()-1;
             
             int prev = map[index]-'0';
-            {
-                /* code */
-            }
+
             
             if (prev+num == 7)
             {
