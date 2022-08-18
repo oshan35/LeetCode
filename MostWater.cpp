@@ -3,21 +3,30 @@ using namespace std;
 #include <vector>
 
 int maxArea(vector<int>& height) {
-    vector<int> relativeArea;
+   int left=0;
+   int right=height.size()-1;
+   int maxArea = 0;
+   while (left!=right)
+   {
+        int area;
+        if (height[left]>height[right])
+        {
+            area  = (right-left)*height[right];
+            right= right-1;
+        }else{
+            area = (right-left)*height[left];
+            left = left+1;
+        }
 
-    for (int i = 0; i < height.size(); i++)
-    {
-        relativeArea[i] = height[i]*(i+1);
+        if (area>maxArea)
+        {
+            maxArea = area;
+        }
         
-    }
-    
-    int maxArea = 0;
-    for (int j = 0; j < relativeArea.size(); j++)
-    {
-        
-    }
-    
-    return max_Area;
+   }
+
+   return maxArea;
+   
     
         
 }
