@@ -6,46 +6,93 @@ using namespace std;
 
 
 //abca
+// int lengthOfLongestSubString(string s){
+//     if(s.length()==1){
+//         return 1;
+//     }
+//     int length = s.length()-1;
+    
+//     int longestLength = 0;
+//     //string longestString = "";
+//     int root_pos = 0;
+//     while(root_pos<length){
+//         if(longestLength>(length-root_pos)){
+//             break;
+//         }
+//         string subString;
+//         subString+=s[root_pos];
+//         for(int j=root_pos+1;j<=length+1;j++){
+//             //cout<<subString.at(0)<<endl;
+//             if(!(count(subString.begin(),subString.end(),s[j]))){
+//                 subString+=s[j];
+//             }else{
+//                 root_pos = j;
+//                 if (longestLength<subString.length())
+//                 {
+//                     longestLength = subString.length();
+//                 }
+                
+//                 break;
+//             }
+ 
+        
+//         }
+
+//     }
+
+    
+
+//     return longestLength;
+// }
+
 int lengthOfLongestSubString(string s){
     if(s.length()==1){
         return 1;
     }
-    int length = s.length()-1;
-    
-    int longestLength = 0;
-    //string longestString = "";
-    int root_pos = 0;
-    while(root_pos<length){
-        if(longestLength>(length-root_pos)){
-            break;
-        }
-        string subString;
-        subString+=s[root_pos];
-        for(int j=root_pos+1;j<=length+1;j++){
-            //cout<<subString.at(0)<<endl;
-            if(!(count(subString.begin(),subString.end(),s[j]))){
-                subString+=s[j];
-            }else{
-                root_pos = j;
-                if (longestLength<subString.length())
-                {
-                    longestLength = subString.length();
-                }
-                
+    int longestLength=0;
+    string longestSubString = "";
+    longestSubString+=s[0];
+
+
+    for (int i = 1; i < s.length(); i++)
+    {
+
+        char curr = s[i];
+        bool flag = true;
+        for (int j = 0; j < longestSubString.length(); j++)
+        {
+            char item = longestSubString[j];
+            if (curr==item)
+            {
+                flag=false;
                 break;
+                
             }
- 
-        
+            
+        }
+        if (!flag)
+        {
+
+            longestSubString="";
+            longestSubString+=curr;
+           
+        }else{
+            longestSubString+=curr;
+
         }
 
+        if (longestLength<longestSubString.length())
+        {
+            longestLength = longestSubString.length();
+        }
+        
+        
     }
-
     
-
     return longestLength;
 }
 
 int main(){
-    int length = lengthOfLongestSubString(" ");
+    int length = lengthOfLongestSubString("dvdf");
     cout<<"Longest length: "<<length<<endl;
 }
