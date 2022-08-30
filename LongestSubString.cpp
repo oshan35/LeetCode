@@ -15,10 +15,8 @@ int lengthOfLongestSubString(string s){
     string longestSubString = "";
     longestSubString+=s[0];
 
-
     for (int i = 1; i < s.length(); i++)
     {
-
         char curr = s[i];
         bool flag = true;
         for (int j = 0; j < longestSubString.length(); j++)
@@ -26,24 +24,16 @@ int lengthOfLongestSubString(string s){
             char item = longestSubString[j];
             if (curr==item)
             {
-   
                 longestSubString.erase(0,j+1);
-            
-                
-                break;
-                
+                break; 
             }
             
         }
-      
         longestSubString+=curr;
-
-        
         if (longestLength<longestSubString.length())
         {
             longestLength = longestSubString.length();
         }
-        
         
     }
     
