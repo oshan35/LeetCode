@@ -1,25 +1,69 @@
 #include<iostream>
 using namespace std;
 
+// 
+// Implimentation of linked List class
+// LinkedList l1;
+// l1.addNode(1);
+// l1.addNode(2);
+// l1.removeNode()
 
-class Node{
+// 2,3,5,6 = [1,3,8,5,6] = O(n)
+// 2 -> 3 -> 5 -> 6 -> 7 = O(1)
+
+
+class LinkedList{
+
+    class Node{
+        public:
+            int data;
+            Node* next;
+
+            // Node(int date, Node* next){
+            //     this->data = data;
+            //     this->next = next;
+            // }
+    };
+
+
+
+
+
     public:
-        int data;
-        Node* next;
+    Node* head; // 7
 
-        // Node(int date, Node* next){
-        //     this->data = data;
-        //     this->next = next;
-        // }
-};
+    LinkedList(){
+        head = new Node();
+    }
 
-void printList(Node* n)
-{
-    while (n != NULL) {
-        cout << n->data << " ";
-        n = n->next;
+    void addNode(int data){
+        Node* newNode = new Node();
+        newNode->data = data;
+        Node* temp = head;
+        // 2 -> 3 -> 5 -> 6 -> 7 -> data
+        while (temp->next != nullptr)
+        {
+            temp = temp->next;
+        }
+        //head -> 7 - address
+        temp->next = newNode;
+    
+
+    }
+
+    void print()
+    {
+        while (head != NULL) {
+        cout << head->data << " ";
+        head = head->next;
     }
 }
+
+};
+
+
+
+
  
 
 int main(){
