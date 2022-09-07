@@ -3,16 +3,16 @@ using namespace std;
 #include<string>
 
 string longestPalindrome(string s) {
-    // string paldromicSubstring="";
-    // paldromicSubstring+=s[0];
 
     int longestPaldromicSubstring=0;
 
-    for (int i = 1; i < s.length(); i++)
+    for (int i = 0; i < s.length(); i++)
     {
-        for(int j=0;j<s.length();j++){
+        if ( i!=0 || i!=s.length()-1 )
+        {
             
         }
+        
     }
     
 }
