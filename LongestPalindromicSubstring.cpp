@@ -41,7 +41,7 @@ string longestPalindrome(string s) {
             for (int j=1;j<=travers;j++)
             {
 
-                if (s[i-j]==s[i+j])
+                if (s[i-j]==s[i+j] && (i+j<s.length()))
                 {
                     substringeven =  s[i-j]+substringeven+s[i+j];
 
@@ -52,9 +52,9 @@ string longestPalindrome(string s) {
             }
 
             for (int k = 0; k <= travers; k++)
-            {
+            {   
 
-                if (s[i-k]==s[i+k+1])
+                if (s[i-k]==s[i+k+1] && (i+k+1 < s.length()))
                 {
                     substringodd = s[i-k]+substringodd+s[i+k+1];
                    
@@ -81,8 +81,11 @@ string longestPalindrome(string s) {
 
 // iabba
 
+
+
+
 int main(){
-    string s="aacabdkacaa";
+    string s="zzzz";
     string reslut=longestPalindrome(s);
     cout<<reslut<<endl;
     return 0;
