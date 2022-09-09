@@ -4,87 +4,82 @@ using namespace std;
 
 //s = "babad"
 //s = "cbbd"
+// aacabdkacaa
 
 string longestPalindrome(string s) {
 
-    // int longestPaldromicSubstringLength=0;
-    string longestPaldromicSubstring ="";
+        string longestPaldromicSubstring ="";
 
-    if (s.length()==1)
-    {
-        longestPaldromicSubstring=s;
+        if (s.length()==1)
+        {
+            longestPaldromicSubstring=s;
+            return longestPaldromicSubstring;
+        }
+
+
+        for (int i = 0; i < s.length()-1; i++)
+        {
+            int left = i;
+            int right = s.length() - left-1;
+
+            int travers;
+
+            if (left<right)
+            {
+                travers = left;
+              
+            }else{
+                travers = right;
+           
+            }
+
+            string substringeven="";
+            substringeven+=s[i];
+
+            string substringodd="";
+
+            for (int j=1;j<=travers;j++)
+            {
+
+                if (s[i-j]==s[i+j])
+                {
+                    substringeven =  s[i-j]+substringeven+s[i+j];
+
+                }else{
+                    break;
+                }
+
+            }
+
+            for (int k = 0; k <= travers; k++)
+            {
+
+                if (s[i-k]==s[i+k+1])
+                {
+                    substringodd = s[i-k]+substringodd+s[i+k+1];
+                   
+                }else{
+                    break;
+                }
+            }
+
+            if (longestPaldromicSubstring.length()<substringeven.length())
+            {
+                longestPaldromicSubstring = substringeven;
+            }
+
+            if (longestPaldromicSubstring.length()<substringodd.length())
+            {
+                longestPaldromicSubstring = substringodd;
+            }
+
+
+        }
         return longestPaldromicSubstring;
-    }
-    
-
-    for (int i = 0; i < s.length()-1; i++)
-    {
-        int left = i;
-        int right = s.length() - left-1;
-
-        int travers;
-        int traversDirection;
-        if (left<right)
-        {
-            travers = left;
-            //traversDirection = -1;
-        }else{
-            travers = right;
-            //traversDirection = 1;
-        }
-        // cout<<"Start: "<<s[i]<<endl;
-        string substringeven="";
-        substringeven+=s[i];
-        string substringodd="";
-
-        for (int j=1;j<=travers;j++)
-        {
-        
-            // cout<<"odd number"<<endl;
-            // cout<<"left: "<<s[i-j]<<" travers no: "<<travers<<" right: "<<s[i+j]<<endl;
-            if (s[i-j]==s[i+j])
-            {
-                substringeven =  s[i-j]+substringeven+s[i+j];
-                /* code */
-            }
-            
-
-            //int index = i + (travers*traversDirection);
-            //char ch = s[index];
-            
-        }
-        
-        for (int k = 0; k <= travers; k++)
-        {
-            // cout<<"Even number"<<endl;
-            // cout<<"left: "<<s[i-k]<<" travers no: "<<travers<<" right: "<<s[i+k+1]<<endl;
-            if (s[i-k]==s[i+k+1])
-            {
-                substringodd = s[i-k]+substringodd+s[i+k+1];
-                /* code */
-            }
-        }
-
-        if (longestPaldromicSubstring.length()<substringeven.length())
-        {
-            longestPaldromicSubstring = substringeven;
-        }
-        
-        if (longestPaldromicSubstring.length()<substringodd.length())
-        {
-            longestPaldromicSubstring = substringodd;
-        }
-
-        // cout<<"----------"<<endl;
-        
-        
-        
-        
-        
-    }
-    return longestPaldromicSubstring;
     
 }
+
+// iabba
 
 int main(){
     string s="aacabdkacaa";
