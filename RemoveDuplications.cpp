@@ -4,14 +4,22 @@ using namespace std;
 
 
 int removeDuplicates(vector<int>& nums) {
-    int k=1;
-    int current = nums[0];
-    for (int i = 1; i < nums.size(); i++)
-    {
-        if (current != nums[i])
+    int k =1;
+    int curr = nums[0];
+    for(int i=1;i<nums.size();i++){
+        if (curr!=nums[i])
         {
             k++;
-            current = nums[i];
+            curr = nums[i];
+            int j = i;
+            while(nums[j-1]==-123){
+                j-=1;
+            }
+            int temp = nums[j];
+            nums[j] = curr;
+            nums[i] = temp;
+        }else{
+            nums[i] = -123;
         }
         
     }
