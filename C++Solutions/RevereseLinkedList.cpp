@@ -8,19 +8,21 @@ struct ListNode {
       ListNode(int x) : val(x), next(nullptr) {}
       ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
+// 1 2 3 4 
 
+// get the head 
+// get head.next
+// get head.next.next into var
+// equal head into head.next
+// equal head.next to head
+// 
 ListNode* reverse(ListNode* head){
-    ListNode* temp =NULL;
-    ListNode* prev=NULL;
-    ListNode* curr = head;
-    while (curr!=NULL)
+    ListNode* temp =NULL; // 3 4
+    ListNode* prev=NULL; 
+   
+    while (head!=NULL)
     {
-        temp = curr->next;
-        curr->next =prev;
-        curr = prev;
-
         
-
     }
     head = prev;
 
