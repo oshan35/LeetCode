@@ -2,6 +2,8 @@
 using namespace std;
 #include<vector>
 
+
+
 struct Node{
     int data;
     Node* left;
@@ -17,24 +19,42 @@ Node* createNode(int data) {
 // que = [7,9]
 
 void leftView(Node* root){
-    vector<Node*> que;
+    vector<pair<Node*,int>> que;
 
-    que.push_back(root);
+    pair<Node*, int> newNode;
+    newNode.first = root;
+    newNode.second = 1;
+
+    que.push_back(newNode);
 
     while (que.size() != 0) // size = 2
     {
-        Node* currNode = que[0]; // 6
-
-        cout<<currNode->data<<endl;
+        Node* currNode = que[0].first; // 6
+        int side = que[0].second;
+        
+        if (side == 0){
+            cout<<currNode->data<<endl;
+        }
+        
+        
+        //cout<<currNode->data<<endl;
 
         que.erase(que.begin());
 
         if(currNode->left!=NULL){
-            que.push_back(currNode->left);
+            pair<Node*, int> nodeLeft;
+            nodeLeft.first = currNode->left;
+            nodeLeft.second = 0;
+
+            que.push_back(nodeLeft);
+
         }
 
         if(currNode->right!=NULL){
-            que.push_back(currNode->right);
+            pair<Node*,int> nodeRight;
+            nodeRight.first = currNode->right;
+            nodeRight.second = 1;
+            que.push_back(nodeRight);
         }
 
     }   
@@ -74,6 +94,6 @@ int main()
 
     //printTree(root);
     //vector<int> result = leftView(root);
-    //leftView(root);
-    cout<<leafNodes(root,0)<<endl;
+    leftView(root);
+    //cout<<leafNodes(root,0)<<endl;
 }
