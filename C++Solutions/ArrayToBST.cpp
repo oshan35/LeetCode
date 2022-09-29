@@ -17,6 +17,7 @@ Node* createNode(int val){
 Node* sortedArrayToBST(int arr[],int start,int end){
 
     if(start>end){
+        cout<<start<<" "<<end<<endl;
         return NULL;
     }
 
