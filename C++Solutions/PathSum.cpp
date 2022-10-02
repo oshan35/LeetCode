@@ -44,7 +44,7 @@ bool hasPathSum(TreeNode* root,int target) {
 
     hasPathSum(root->right,target);
 
-    //pathsum = pathsum - valRight;
+    pathsum = pathsum - root->val;
 
     return hasPath;
 
