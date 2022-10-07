@@ -44,9 +44,7 @@ def main():
 
         solution(instring,0)
 
-        #result = len(winning_sequences)
-
-        print(f'Case #{c}: {seqCount}')
+        print('Case #',c,seqCount)
         c+=1
         
 main()
