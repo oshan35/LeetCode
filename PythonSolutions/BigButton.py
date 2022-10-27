@@ -1,6 +1,6 @@
 
 def solution(s,pos):
-    global seqCount
+    global seqCount   
     if (len(s)-1 < pos):
         win = True
         for f in fobidentList:
@@ -9,9 +9,9 @@ def solution(s,pos):
                 win = False
         if win:
             seqCount+=1
-        return
-    newsB =s[:pos]+"B"+s[pos+1:]
-    newsR = s[:pos]+"R"+s[pos+1:]
+        return 
+    newsB =s[:pos]+"B"+s[pos+1:] # "B     ",pos =0  -> "BB   ", pos=1,
+    newsR = s[:pos]+"R"+s[pos+1:] # "R    ",pos =0 -> "BR   "
     pos+=1
     solution(newsB,pos)
     solution(newsR,pos)
@@ -38,7 +38,7 @@ def main():
 
     c = 1
     for test in test_cases:
-        instring = " "*test[0]
+        instring = " "*test[0] #"     "
 
         fobidentList = test[2]
 
