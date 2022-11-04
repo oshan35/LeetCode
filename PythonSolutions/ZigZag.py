@@ -1,6 +1,3 @@
-from cgitb import reset
-from itertools import count
-
 
 def zig_zag(s,num_of_rows):
     x,y,line_count = 0,0,1
