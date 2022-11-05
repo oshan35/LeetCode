@@ -1,1 +1,3 @@
-print(f"test: {10}")
+s = "abc"
+
+print(s[2:])
