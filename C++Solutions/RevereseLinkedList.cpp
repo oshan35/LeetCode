@@ -16,19 +16,20 @@ struct ListNode {
 // equal head into head.next
 // equal head.next to head
 // 
-ListNode* reverse(ListNode* head){
-    ListNode* temp =NULL; // 3 4
-    ListNode* prev=NULL; 
-   
-    while (head!=NULL)
-    {
-        
+ListNode* reverse(ListNode* node)
+{
+    if (node == NULL)
+        return NULL;
+    if (node->next == NULL) {
+        //head = node;
+        return node;
     }
-    head = prev;
-
-    return head;
-    
+    ListNode* node1 = reverse(node->next);
+    node1->next = node;
+    node->next = NULL;
+    return node;
 }
+
 
 
 

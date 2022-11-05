@@ -21,7 +21,6 @@ vector<vector<int>> threeSum(vector<int>& nums) {
                 found.push_back(nums[i]);
                 found.push_back(nums[j]);
                 found.push_back(k);
-                sort(found.begin(),found.end());
                 result.push_back(found);
                 break;
              
