@@ -1,22 +1,3 @@
-def convert(num):
-    n_count, curr = 0, num[0]
-
-    new_say = ""
-    for i in range(len(num)):
-        if num == "1":
-            return "11"
-        
-        if num[i] == curr:
-            n_count+=1
-        else:
-            new_say = new_say+str(n_count)+str(curr)
-            curr, n_count = num[i], 1
-    
-    if len(new_say) == 0:
-        new_say = str(n_count)+ str(curr)
-    else:
-        new_say = new_say + str(n_count)+ str(curr)
-    return new_say
 
 def countAndSay(n): 
     prev_say = "1"
@@ -31,9 +12,6 @@ def countAndSay(n):
 
         new_say = ""
         for i in range(len(nums)):
-            # if nums == "1":
-            #     new_say = "11"
-            #     continue
             
             if nums[i] == curr:
                 n_count+=1
@@ -53,5 +31,5 @@ def countAndSay(n):
 
 
 
-print(countAndSay(6))
+print(countAndSay(30))
 #print(convert("3322251"))
