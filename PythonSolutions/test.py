@@ -1,3 +1,2 @@
-s = "abc"
-
-print(type(ord(s[1])))
+s = [int(x) for x in list(str(input()))]
+print(len(s))
