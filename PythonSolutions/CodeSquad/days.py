@@ -6,6 +6,9 @@ def max_Days(n):
     w = weeks*5
     l = weeks*2
 
+    max_l = 0
+    min_l = 0
+
     if left >5:
         w +=5
         l+=1
